@@ -82,9 +82,9 @@ jobs:
           FILE_PATH="/tmp/${{ github.event.repository.name }}.${{ env.ENVIRONMENT }}.deployment.yml"
           ssh -o StrictHostKeyChecking=no -p ${{ secrets.HOST_SSH_PORT }} ${{secrets.HOST_SSH_USERNAME}}@${{ secrets.HOST_SSH_ADDRESS }} "docker stack deploy -c "$FILE_PATH" ${{ github.event.repository.name }}-${{ env.ENVIRONMENT }}"
 
-      - name: Clean up deployment file on server
-        if: always()
-        run: ssh -o StrictHostKeyChecking=no -p ${{ secrets.HOST_SSH_PORT }} ${{secrets.HOST_SSH_USERNAME}}@${{ secrets.HOST_SSH_ADDRESS }} "rm -f /tmp/*.yml"
+      # - name: Clean up deployment file on server
+      #   if: always()
+      #   run: ssh -o StrictHostKeyChecking=no -p ${{ secrets.HOST_SSH_PORT }} ${{secrets.HOST_SSH_USERNAME}}@${{ secrets.HOST_SSH_ADDRESS }} "rm -f /tmp/*.yml"
 
       - name: Delete deployment file locally
         if: always()
