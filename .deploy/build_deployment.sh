@@ -132,7 +132,9 @@ run_build_template() {
       while IFS= read -r env_var; do
         [[ -n "$env_var" ]] || continue
         message "var debug: $en_var"
-        yq eval -i ".services.$full_service_name.environment += [\"$env_var\"]" $temp_yaml
+
+        cleaned_env_var="${env_var/=/'=\"'}\""
+        yq eval -i ".services.$full_service_name.environment += [\"$cleaned_env_var\"]" $temp_yaml
       done <<< "$env_list"
     else
       errorMessage "Warning: service '$full_service_name' not found in template"
