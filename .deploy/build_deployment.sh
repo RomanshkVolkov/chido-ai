@@ -104,7 +104,7 @@ run_build_template() {
     exit 1
   }
 
-  trap 'rm -f "$temp_yaml"; message "Cleaned temp file"' EXIT
+  trap 'rm -f "$temp_yaml";' EXIT
 
   message "Has been created temp file $temp_yaml"
 
@@ -133,8 +133,7 @@ run_build_template() {
         [[ -n "$env_var" ]] || continue
         message "var debug: $en_var"
 
-        cleaned_env_var="${env_var/=/'=\"'}\""
-        yq eval -i ".services.$full_service_name.environment += [\"$cleaned_env_var\"]" $temp_yaml
+        yq eval -i ".services.$full_service_name.environment += [\"$env_var\"]" $temp_yaml
       done <<< "$env_list"
     else
       errorMessage "Warning: service '$full_service_name' not found in template"
