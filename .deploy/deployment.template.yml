@@ -8,8 +8,8 @@ services:
     deploy:
       replicas: 1
       labels:
-        caddy_1: HOST_PLACEHOLDER
-        caddy_1.tls: TLS_PLACEHOLDER
+        caddy_1: "HOST_PLACEHOLDER"
+        caddy_1.tls: "TLS_PLACEHOLDER"
         caddy_1.reverse_proxy: "{{upstreams 3000}}" # important check same value on Dockerfile and PORT enviroment var
 
 networks:

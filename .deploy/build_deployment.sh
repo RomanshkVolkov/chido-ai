@@ -135,7 +135,7 @@ run_build_template() {
         yq eval -i ".services.$full_service_name.environment += [\"$env_var\"]" $temp_yaml
       done <<< "$env_list"
     else
-      errorMessage "Advertencia: Servicio '$full_service_name' no encontrado en template"
+      errorMessage "Warning: service '$full_service_name' not found in template"
     fi
   done
 
