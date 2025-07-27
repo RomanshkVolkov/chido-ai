@@ -2,6 +2,7 @@ services:
   STACK_PLACEHOLDER-app:
     image: IMAGE_PLACEHOLDER
     environment:
+      - PORT=3000
     networks:
       - caddy
     deploy:

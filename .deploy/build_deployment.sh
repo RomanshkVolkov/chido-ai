@@ -45,6 +45,7 @@ validate_args() {
 
 validate_env_format() {
   local key="$1"
+  echo "Validating env format: $key"
   if ! [[ "$key" =~ ^DEPLOY_[A-Za-z0-9_]+_[A-Za-z0-9_]+$ ]]; then
     errorMessage "Invalid format on enviroment variable: $key"
     errorMessage "The correct format is: DEPLOY_<SERVICE>_<VARIABLE>"
