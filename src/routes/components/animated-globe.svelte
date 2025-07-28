@@ -22,17 +22,20 @@
    });
 </script>
 
-<div bind:this={globeContainer} class="relative w-96 sm:w-[500px] lg:w-[80vw]">
-   <!-- Outer Glow Effect -->
-   <div class="absolute inset-0 rounded-full scale-110"></div>
-
+<div
+   bind:this={globeContainer}
+   class="relative h-[1020px] w-[700px] md:h-auto md:w-96 sm:w-[500px] lg:w-[80vw] overflow-visible"
+>
    <!-- Main Globe -->
-   <div class="relative w-full h-full flex items-center justify-center">
+   <div
+      class="relative h-full flex items-center justify-center overflow-visible"
+   >
       <!-- Center place -->
 
       <spline-viewer
          url="https://prod.spline.design/o0EFdfY56DM9hrzW/scene.splinecode"
-         class=" translate-y-[500px]"
+         width="900"
+         class="scale-50 translate-y-[200px] md:w-auto md:translate-y-[300px] lg:scale-100 lg:translate-y-[500px]"
       ></spline-viewer>
 
       <!-- Floating Clouds -->

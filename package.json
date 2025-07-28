@@ -23,6 +23,8 @@
 	},
 	"dependencies": {
 		"@inlang/paraglide-js": "^2.0.0",
-		"@sveltejs/adapter-node": "^5.2.13"
+		"@sveltejs/adapter-node": "^5.2.13",
+		"svelte-motion": "^0.12.2",
+		"tailwind-merge": "^3.3.1"
 	}
 }

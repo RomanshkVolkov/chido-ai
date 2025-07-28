@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 
 
+
 @keyframes fade-in-up {
   from {
     opacity: 0;
@@ -11,4 +12,19 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@theme {
+
+  /* Define the keyframes */
+  @keyframes text-gradient {
+    to {
+      background-position: 200% center;
+    }
+  }
+
+  /* Define the animation using the keyframes */
+  /* The syntax is animation-name: animation-duration animation-timing-function animation-iteration-count; */
+  /* Note: Use CSS custom property syntax for the animation definition */
+  --animate-text-gradient: text-gradient 1.5s linear infinite;
 }
