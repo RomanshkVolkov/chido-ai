@@ -6,19 +6,10 @@
    let globeContainer = $state();
    let mounted = $state(false);
 
-   const sourceSplineURL =
-      'https://unpkg.com/@splinetool/viewer@1.10.37/build/spline-viewer.js';
+   const sourceSplineURL = '';
 
    onMount(() => {
       mounted = true;
-
-      // Load Spline Viewer script dynamically
-      const script = document.createElement('script');
-      script.src = sourceSplineURL;
-      script.type = 'module';
-      script.async = true;
-
-      document.head.appendChild(script);
    });
 </script>
 

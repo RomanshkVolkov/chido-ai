@@ -5,12 +5,33 @@
 </script>
 
 <svelte:head>
+   <title>CHIDO AI</title>
+
+   <meta
+      name="description"
+      content="La IA es el pincel; la visión sigue siendo humana."
+   />
+   <meta property="og:url" content="https://chido-ai.com" />
+   <meta property="og:type" content="website" />
+   <meta property="og:title" content="CHIDO AI | Automatización con IA" />
+   <meta
+      property="og:description"
+      content="La IA es el pincel; la visión sigue siendo humana."
+   />
+
+   <meta property="og:image" content="https://chido-ai.com/preview.jpeg" />
+
    <link rel="preconnect" href="https://fonts.googleapis.com" />
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
    <link
       href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..400&display=swap"
       rel="stylesheet"
    />
+   <script
+      type="module"
+      src="https://unpkg.com/@splinetool/viewer@1.10.37/build/spline-viewer.js"
+   >
+   </script>
 </svelte:head>
 
 <main class="relative">
@@ -41,7 +62,7 @@
          class="text-white text-center text-2xl md:text-4xl lg:text-7xl max-w-[1020px]"
          style="font-family: 'Roboto Slab'; font-weight: 900;"
       >
-         Impulsa tus flujos de trabajo con IA
+         La IA es el pincel; la visión sigue siendo humana.
       </h1>
 
       <GradualSpacing
