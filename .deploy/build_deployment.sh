@@ -143,7 +143,7 @@ run_build_template() {
   # 
   message "File deployment generated succesfully"
 
-  echo $temp_yaml >> $output
+  cp "$temp_yaml" "$output"
 }
 
 # process args
