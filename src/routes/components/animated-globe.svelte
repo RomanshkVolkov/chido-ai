@@ -35,6 +35,7 @@
       <spline-viewer
          url="https://prod.spline.design/o0EFdfY56DM9hrzW/scene.splinecode"
          width="900"
+         height="900"
          class="scale-50 translate-y-[200px] md:w-auto md:translate-y-[300px] lg:scale-100 lg:translate-y-[500px]"
       ></spline-viewer>
 
