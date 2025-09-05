@@ -1,20 +1,42 @@
 <script lang="ts">
+   // import Globe from 'globe.gl';
    import { onMount } from 'svelte';
 
    let { reducedMotion = false } = $props();
 
-   let globeContainer = $state();
    let mounted = $state(false);
 
    const sourceSplineURL = '';
 
+   const N = 20;
+   const arcsData = [...Array(N).keys()].map(() => ({
+      startLat: (Math.random() - 0.5) * 180,
+      startLng: (Math.random() - 0.5) * 360,
+      endLat: (Math.random() - 0.5) * 180,
+      endLng: (Math.random() - 0.5) * 360,
+      color: [
+         ['red', 'white', 'blue', 'green'][Math.round(Math.random() * 3)],
+         ['red', 'white', 'blue', 'green'][Math.round(Math.random() * 3)],
+      ],
+   }));
+
    onMount(() => {
-      mounted = true;
+      if (typeof window !== 'undefined') {
+         const globeContainer = document.getElementById('globeViz')!;
+         new Globe(globeContainer)
+            .globeImageUrl(
+               '//cdn.jsdelivr.net/npm/three-globe/example/img/earth-night.jpg',
+            )
+            .arcsData(arcsData)
+            .arcColor('color')
+            .arcDashLength(() => Math.random())
+            .arcDashGap(() => Math.random())
+            .arcDashAnimateTime(() => Math.random() * 4000 + 500);
+      }
    });
 </script>
 
 <div
-   bind:this={globeContainer}
    class="relative h-[1020px] w-[700px] md:h-auto md:w-96 sm:w-[500px] lg:w-[80vw] overflow-visible"
 >
    <!-- Main Globe -->
@@ -23,12 +45,13 @@
    >
       <!-- Center place -->
 
-      <spline-viewer
+      <div id="globeViz" class=" bg-transparent!"></div>
+      <!-- <spline-viewer
          url="https://prod.spline.design/o0EFdfY56DM9hrzW/scene.splinecode"
          width="900"
          height="900"
          class="scale-50 translate-y-[200px] md:w-auto md:translate-y-[300px] lg:scale-100 lg:translate-y-[500px]"
-      ></spline-viewer>
+      ></spline-viewer> -->
 
       <!-- Floating Clouds -->
       {#if mounted}
